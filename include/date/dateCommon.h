@@ -85,6 +85,10 @@ inline YearMonthDay TimePointToYearMonthDay(const TimePoint& tp)
     return date::year_month_day{date::floor<date::days>(tp)};
 }
 
+inline TimePoint TimePointFromYearMonthDay(const YearMonthDay& ymd)
+{
+    return date::sys_days{ymd.year() / ymd.month() / ymd.day()};
+}
 
 inline auto TimePointToHourMinSec(const TimePoint& tp)
 {
